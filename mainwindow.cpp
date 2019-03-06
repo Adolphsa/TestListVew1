@@ -53,37 +53,39 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->addButton->setStyleSheet("border-image: url(:/images/add.png);");
 
     connect(ui->addButton, &QPushButton::pressed, [=](){
-        ui->addButton->setStyleSheet("border-image:url(:/images/add2.png)");}
-    );
+        ui->addButton->setStyleSheet("border-image:url(:/images/add2.png)");});
+
     connect(ui->addButton, &QPushButton::released, [=](){
-        ui->addButton->setStyleSheet("border-image:url(:/images/add.png)"); }
-    );
+        ui->addButton->setStyleSheet("border-image:url(:/images/add.png)"); });
 
     //减号icon
     ui->subtractButton->setStyleSheet("border-image: url(:/images/subtract.png);");
     connect(ui->subtractButton, &QPushButton::pressed, [=](){
-        ui->subtractButton->setStyleSheet("border-image:url(:/images/subtract2.png)");}
-    );
+        ui->subtractButton->setStyleSheet("border-image:url(:/images/subtract2.png)");});
+
     connect(ui->subtractButton, &QPushButton::released, [=](){
-        ui->subtractButton->setStyleSheet("border-image:url(:/images/subtract.png)"); }
-    );
+        ui->subtractButton->setStyleSheet("border-image:url(:/images/subtract.png)"); });
 
 
-        pModel = new QStandardItemModel();
-        for (int i=0; i<2; ++i) {
-            QStandardItem *pItem = new QStandardItem;
-            MyListItemData itemData;
-            itemData.nameText = names.at(i);
-            itemData.infoText = infoes.at(i);
-            itemData.imgPath = icons.at(i);
-            pItem->setData(QVariant::fromValue(itemData), Qt::UserRole+1);
-            pModel->appendRow(pItem);
+    pModel = new QStandardItemModel();
+    for (int i=0; i<2; ++i) {
+        QStandardItem *pItem = new QStandardItem;
+        MyListItemData itemData;
+        itemData.nameText = names.at(i);
+        itemData.infoText = infoes.at(i);
+        itemData.imgPath = icons.at(i);
+        pItem->setData(QVariant::fromValue(itemData), Qt::UserRole+1);
+        pModel->appendRow(pItem);
 
-        }
+    }
 
-        pItemDelegate = new MyItemDelegate(this);
-        ui->listView->setItemDelegate(pItemDelegate);
-        ui->listView->setModel(pModel);
+    pItemDelegate = new MyItemDelegate(this);
+    ui->listView->setItemDelegate(pItemDelegate);
+    ui->listView->setModel(pModel);
+
+    QString str("啦啦啦啦");
+    QString str1("啦啦啦啦");
+    QString str2("啦啦啦啦");
 }
 
 MainWindow::~MainWindow()
