@@ -82,10 +82,6 @@ MainWindow::MainWindow(QWidget *parent) :
     pItemDelegate = new MyItemDelegate(this);
     ui->listView->setItemDelegate(pItemDelegate);
     ui->listView->setModel(pModel);
-
-    QString str("啦啦啦啦");
-    QString str1("啦啦啦啦");
-    QString str2("啦啦啦啦");
 }
 
 MainWindow::~MainWindow()
